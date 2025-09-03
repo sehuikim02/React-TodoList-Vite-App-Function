@@ -1,26 +1,46 @@
 import PropTypes from 'prop-types';
+import { useState, useCallback } from 'react';
+import { useDispatch } from 'react-redux';
+
+import { addTodo } from '../reducers/todosSlice';
 import './Form.css';
 
-const FunctionalForm = ({ myTodo, myEnter, myChange, myCreate }) => {
+const FunctionalForm = () => {
+  const [todo, setTodo] = useState('');
+  const dispatch = useDispatch();
+
+  //Event Handler 메서드 선언
+  const handleChange = useCallback((e) => {
+    setTodo(e.target.value);
+  }, [setTodo]);
+
+  const handleCreate = useCallback(() => {
+    console.log('handleCreate');
+    const newTodo = {
+      text: todo,
+      checked: false
+    }
+    dispatch(addTodo(newTodo));
+
+    setTodo('');
+
+  }, [dispatch, todo]);
+
+  const handleEnter = (e) => {
+    if (e.keyCode === 13) {
+      handleCreate();
+    }
+  }
+
   return (
     <div className="form">
-      <input 
-        value={myTodo} 
-        onChange={myChange}
-        onKeyDown={myEnter} 
-      />
-      <div className="create-button" onClick={myCreate}>
+      <input value={todo} onChange={handleChange}
+        onKeyDown={handleEnter} />
+      <div className="create-button" onClick={handleCreate}>
         추가
       </div>
     </div>
   );
-};
-
-FunctionalForm.propTypes = {
-  myTodo: PropTypes.string,
-  myEnter: PropTypes.func,
-  myChange: PropTypes.func,
-  myCreate: PropTypes.func
 };
 
 export default FunctionalForm;
