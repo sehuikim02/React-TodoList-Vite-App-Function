@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { memo } from 'react';
 import PropTypes from 'prop-types';
@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { removeTodo, toggleTodo } from '../reducers/todosSlice';
 import './TodoItem.css';
 
-const FunctionalTodoItem = ({ text, checked, id }) => {
+const TodoItem = ({ text, checked, id }) => {
   const dispatch = useDispatch();
 
   /*
@@ -43,7 +43,7 @@ const FunctionalTodoItem = ({ text, checked, id }) => {
   );
 };
 
-FunctionalTodoItem.propTypes = {
+TodoItem.propTypes = {
   text: PropTypes.string,
   checked: PropTypes.bool,
   id: PropTypes.number,
@@ -52,6 +52,6 @@ FunctionalTodoItem.propTypes = {
 // memo를 사용하여 shouldComponentUpdate 대체
 // checked가 변경될 때만 리렌더링
 export default memo(
-  FunctionalTodoItem,
+  TodoItem,
   (prevProps, nextProps) => prevProps.checked === nextProps.checked
 );

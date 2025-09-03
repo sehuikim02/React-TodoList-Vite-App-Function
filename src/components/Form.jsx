@@ -1,11 +1,10 @@
-import PropTypes from 'prop-types';
 import { useState, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { addTodo } from '../reducers/todosSlice';
 import './Form.css';
 
-const FunctionalForm = () => {
+const Form = () => {
   const [todo, setTodo] = useState('');
   const dispatch = useDispatch();
 
@@ -43,4 +42,4 @@ const FunctionalForm = () => {
   );
 };
 
-export default FunctionalForm;
+export default Form;

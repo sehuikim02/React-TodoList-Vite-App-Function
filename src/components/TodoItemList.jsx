@@ -4,9 +4,9 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { fetchAllTodos } from '../reducers/todosSlice';
-import FunctionalTodoItem from './FunctionalTodoItem';
+import TodoItem from './TodoItem';
 
-const FunctionalTodoItemList = () => {
+const TodoItemList = () => {
   /*
         React-Redux의 connect() 함수의 첫번째 아규먼트 mapStateToProps 함수와 같은 역할
         useSelector()는 store에 저장된 상태변수를 props 변수로 매핑 해준다
@@ -35,7 +35,7 @@ const FunctionalTodoItemList = () => {
 
   const todoList = todos.map(
     ({ id, text, checked }) =>
-    (<FunctionalTodoItem
+    (<TodoItem
       id={id} text={text} checked={checked} key={id}
     />));
 
@@ -49,6 +49,6 @@ const FunctionalTodoItemList = () => {
 // memo를 사용하여 shouldComponentUpdate 대체
 // myTodos가 변경될 때만 리렌더링
 export default memo(
-  FunctionalTodoItemList,
+  TodoItemList,
   (prevProps, nextProps) => prevProps.myTodos === nextProps.myTodos
 );

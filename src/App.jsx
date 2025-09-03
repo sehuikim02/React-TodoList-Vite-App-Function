@@ -1,14 +1,12 @@
-import FunctionalTodoItemList from './components/FunctionalTodoItemList';
-import FuctionalTodoListTemplate from './components/FuntionalTodoListTemplate';
-import FunctionalForm from './components/FuctionalForm';
+import TodoItemList from './components/TodoItemList';
+import TodoListTemplate from './components/TodoListTemplate';
+import Form from './components/Form';
 
 const App = () => {
   return (
-    <FuctionalTodoListTemplate
-      form={ <FunctionalForm />}
-    >
-      <FunctionalTodoItemList />
-    </FuctionalTodoListTemplate>
+    <TodoListTemplate form={ <Form />}>
+      <TodoItemList />
+    </TodoListTemplate>
   );
 };
 export default App;
