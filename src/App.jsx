@@ -15,6 +15,7 @@ const App = () => {
           <Link to="/history">History 예제</Link>
         </li>
       </ul>
+      
     </>
   );
 }
