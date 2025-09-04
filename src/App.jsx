@@ -15,6 +15,9 @@ const App = () => {
         <li>
           <Link to="/history">History 예제</Link>
         </li>
+        <li>
+          <Link to="/callback">useCallback</Link>
+        </li>
       </ul>
       <AppRoutes />
     </>
