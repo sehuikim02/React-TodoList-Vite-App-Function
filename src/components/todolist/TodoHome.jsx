@@ -1,10 +1,13 @@
-import React from 'react';
+import Form from '@components/todolist/Form';
+import TodoItemList from '@components/todolist/TodoItemList';
+import TodoListTemplate from '@components/todolist/TodoListTemplate';
+
 
 const TodoHome = () => {
     return (
-        <div>
-            
-        </div>
+        <TodoListTemplate form={<Form />}>
+            <TodoItemList />
+        </TodoListTemplate>
     );
 };
 

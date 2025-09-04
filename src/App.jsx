@@ -1,12 +1,21 @@
-import Form from '@components/Form';
-import TodoItemList from '@components/TodoItemList';
-import TodoListTemplate from '@components/TodoListTemplate';
+import { Link } from "react-router-dom";
+import './App.css';
 
 const App = () => {
   return (
-    <TodoListTemplate form={<Form />}>
-      <TodoItemList />
-    </TodoListTemplate>
+    <>
+      <ul>
+        <li>
+          <Link to="/">TodoList</Link>
+        </li>
+        <li>
+          <Link to="/profiles">프로필</Link>
+        </li>
+        <li>
+          <Link to="/history">History 예제</Link>
+        </li>
+      </ul>
+    </>
   );
 }
 export default App;
